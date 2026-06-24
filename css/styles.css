@@ -262,6 +262,24 @@ body {
   margin-bottom: 14px;
 }
 
+/* ── Lucide icons ── */
+.lc-icon {
+  display: inline-block;
+  width: 14px; height: 14px;
+  vertical-align: middle;
+  position: relative; top: -1px;
+  flex-shrink: 0;
+}
+/* SVG injected by lucide.createIcons() */
+.lc-icon svg {
+  width: 14px; height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* ── Last 10 ── */
 .last-ten-badges { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 12px; }
 .game-badge {

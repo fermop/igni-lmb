@@ -111,13 +111,13 @@ function renderHomeAway(team) {
     <div class="card-label">Casa vs Visitante</div>
     <div class="home-away-grid">
       <div class="split-block">
-        <div class="split-type">🏠 Casa</div>
+        <div class="split-type"><i data-lucide="home" class="lc-icon"></i> Casa</div>
         <div class="split-record">${home.wins}–${home.losses}</div>
         <div class="split-pct">PCT ${home.pct}</div>
       </div>
       <div class="vs-sep">VS</div>
       <div class="split-block">
-        <div class="split-type">✈️ Visitante</div>
+        <div class="split-type"><i data-lucide="plane" class="lc-icon"></i> Visitante</div>
         <div class="split-record">${away.wins}–${away.losses}</div>
         <div class="split-pct">PCT ${away.pct}</div>
       </div>
@@ -158,13 +158,13 @@ function renderDayNight(team) {
     <div class="card-label">Día vs Noche</div>
     <div class="day-night-cols">
       <div class="dn-block day">
-        <div class="dn-icon-label">☀️ Día</div>
+        <div class="dn-icon-label"><i data-lucide="sun" class="lc-icon"></i> Día</div>
         <div class="dn-record">${day.wins}–${day.losses}</div>
         <div class="dn-pct">PCT ${day.pct}</div>
         ${dayGames > 0 ? `<div class="dn-games">${dayGames} juegos</div>` : ''}
       </div>
       <div class="dn-block night">
-        <div class="dn-icon-label">🌙 Noche</div>
+        <div class="dn-icon-label"><i data-lucide="moon" class="lc-icon"></i> Noche</div>
         <div class="dn-record">${night.wins}–${night.losses}</div>
         <div class="dn-pct">PCT ${night.pct}</div>
         ${nightGames > 0 ? `<div class="dn-games">${nightGames} juegos</div>` : ''}
@@ -184,13 +184,13 @@ function renderPressure(team) {
     <div class="card-label">Situaciones de presión</div>
     <div class="pressure-cols">
       <div class="pressure-block">
-        <div class="p-label">⚡ 1 carrera</div>
+        <div class="p-label"><i data-lucide="zap" class="lc-icon"></i> 1 carrera</div>
         <div class="p-record">${oneRun.wins}–${oneRun.losses}</div>
         <div class="p-pct">PCT ${oneRun.pct}</div>
         ${oneRunGames > 0 ? `<div class="p-games">${oneRunGames} juegos cerrados</div>` : ''}
       </div>
       <div class="pressure-block">
-        <div class="p-label">🔵 Extra innings</div>
+        <div class="p-label"><i data-lucide="timer" class="lc-icon"></i> Extra innings</div>
         <div class="p-record">${extra.wins}–${extra.losses}</div>
         <div class="p-pct">PCT ${extra.pct}</div>
         ${extraGames > 0 ? `<div class="p-games">${extraGames} juegos extendidos</div>` : ''}
@@ -237,6 +237,8 @@ export function renderAll(team) {
   renderDayNight(team);
   renderPressure(team);
   renderSeasonContext(team);
+  // Process Lucide icons injected via innerHTML
+  if (window.lucide) window.lucide.createIcons();
 }
 
 // Keep legacy exports so nothing breaks if referenced elsewhere
