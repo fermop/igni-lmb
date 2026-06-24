@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liga Mexicana de Béisbol · Temporada 2026</title>
+  <meta name="description" content="Estadísticas en vivo de la Liga Mexicana de Béisbol. Consulta récords, rachas, rendimiento por turno y más de todos los equipos de la LMB 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="league-brand">
+        <span class="league-abbr">LMB</span>
+        <span class="league-year">2026</span>
+      </div>
+      <nav class="zone-nav" id="team-selector" aria-label="Selección de equipo">
+        <div class="zone-group">
+          <span class="zone-label">Norte</span>
+          <div class="zone-buttons" id="zone-norte"></div>
+        </div>
+        <div class="zone-divider"></div>
+        <div class="zone-group">
+          <span class="zone-label">Sur</span>
+          <div class="zone-buttons" id="zone-sur"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="dashboard" aria-live="polite">
+    <!-- Hero Header -->
+    <section id="hero-header" class="hero-section"></section>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid" id="stats-grid">
+      <div id="card-last-ten" class="stat-card"></div>
+      <div id="card-run-diff" class="stat-card"></div>
+      <div id="card-home-away" class="stat-card span-full"></div>
+      <div id="card-day-night" class="stat-card"></div>
+      <div id="card-pressure" class="stat-card"></div>
+      <div id="card-season-context" class="stat-card span-full"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Datos: MLB Stats API · Liga Mexicana de Béisbol 2026</p>
+  </footer>
+
+  <div id="loading-screen" class="loading-screen" aria-hidden="true">
+    <div class="loading-inner">
+      <div class="loading-diamond"></div>
+      <p>Cargando estadísticas…</p>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
