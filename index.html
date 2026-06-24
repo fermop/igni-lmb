@@ -9,15 +9,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Apply theme before paint to avoid FOUC -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('lmb-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
 
   <!-- TOP NAV -->
   <header class="site-header">
     <div class="header-inner">
-      <div class="league-brand">
-        <span class="league-abbr">LMB</span>
-        <span class="league-year">2026</span>
+      <div class="header-brand-row">
+        <div class="league-brand">
+          <span class="league-abbr">LMB</span>
+          <span class="league-year">2026</span>
+        </div>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Cambiar tema"
+          aria-pressed="false"
+          title="Cambiar tema"
+        >
+          <span class="icon-wrap icon-sun-wrap"><i data-lucide="sun" class="lc-icon"></i></span>
+          <span class="icon-wrap icon-moon-wrap"><i data-lucide="moon" class="lc-icon"></i></span>
+        </button>
       </div>
       <nav class="zone-nav" id="team-selector" aria-label="Selección de equipo">
         <div class="zone-group">

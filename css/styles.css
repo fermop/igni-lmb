@@ -26,7 +26,34 @@ body {
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  transition: background .25s ease, color .25s ease;
 }
+
+/* ─── LIGHT MODE TOKENS ──────────────────────────── */
+[data-theme="light"] {
+  --bg:        #f4f1ec;
+  --surface:   #ffffff;
+  --surface2:  #eeebe5;
+  --border:    #d8d3cb;
+  --red:       #c41230;
+  --red-dim:   rgba(196,18,48,.1);
+  --gold:      #a5720a;
+  --gold-dim:  rgba(165,114,10,.1);
+  --green:     #1a8c47;
+  --green-dim: rgba(26,140,71,.1);
+  --text:      #1a1a1e;
+  --muted:     #65656f;
+  --faint:     #b8b4ac;
+}
+[data-theme="light"] .site-header {
+  background: rgba(244,241,236,.92);
+}
+[data-theme="light"] .hero-stitches { opacity: .05; filter: invert(1); }
+[data-theme="light"] .hero-glow {
+  background: radial-gradient(ellipse, rgba(196,18,48,.08) 0%, transparent 70%);
+}
+[data-theme="light"] .streak-badge.win  { border-color: rgba(26,140,71,.3); }
+[data-theme="light"] .streak-badge.loss { border-color: rgba(196,18,48,.3); }
 
 /* ─── LOADING ─────────────────────────────────────── */
 .loading-screen {
@@ -73,6 +100,40 @@ body {
   display: flex; flex-direction: row;
   align-items: baseline; gap: 6px; flex-shrink: 0;
 }
+
+/* Mobile: brand row = brand on left, toggle on right */
+.header-brand-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* ── Theme toggle button ── */
+.theme-toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .18s ease, border-color .18s ease, background .18s ease;
+}
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--faint);
+  background: var(--surface);
+}
+.theme-toggle .lc-icon     { width: 15px; height: 15px; }
+.theme-toggle .lc-icon svg { width: 15px; height: 15px; }
+
+/* Icon visibility: target wrapper spans (Lucide replaces <i> → don't hide the SVG directly) */
+.icon-wrap { display: inline-flex; align-items: center; justify-content: center; }
+.icon-moon-wrap { display: none; }
+[data-theme="light"] .icon-sun-wrap  { display: none; }
+[data-theme="light"] .icon-moon-wrap { display: inline-flex; }
 .league-abbr {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 900; font-size: 1.4rem;
@@ -437,12 +498,18 @@ body {
     gap: 24px;
     padding: 12px 20px;
   }
+  /* Brand row: dissolve into parent flex on desktop */
+  .header-brand-row { display: contents; }
+
   .league-brand {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
   }
   .league-abbr { font-size: 1.5rem; }
+
+  /* Toggle: auto-pushes to the right end */
+  .theme-toggle { margin-left: auto; align-self: center; }
 
   /* Nav: wrapping two-zone layout side by side */
   .zone-nav {

@@ -62,4 +62,22 @@ function updateDashboard() {
   renderAll(team);
 }
 
+function initTheme() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+
+  // Sync aria-pressed with current theme on load
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  btn.setAttribute('aria-pressed', current === 'light');
+
+  btn.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('lmb-theme', next);
+    btn.setAttribute('aria-pressed', next === 'light');
+  });
+}
+
 init();
+initTheme();
