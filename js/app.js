@@ -29,7 +29,8 @@ async function init() {
 function renderNavbar() {
   const renderButtons = (teams, containerId) => {
     const container = document.getElementById(containerId);
-    container.innerHTML = teams.map(team => `
+    const sorted = [...teams].sort((a, b) => a.team.name.localeCompare(b.team.name, 'es'));
+    container.innerHTML = sorted.map(team => `
       <button
         id="btn-team-${team.team.id}"
         class="team-btn${team.team.id === selectedTeamId ? ' active' : ''}"
