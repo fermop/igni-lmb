@@ -172,9 +172,14 @@ body {
 .league-brand {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   gap: 6px;
   flex-shrink: 0;
+}
+
+.league-logo {
+  width: 32px;
+  height: 32px;
 }
 
 .league-abbr {
