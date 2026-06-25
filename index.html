@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liga Mexicana de Béisbol · Temporada 2026</title>
-  <meta name="description" content="Estadísticas en vivo de la Liga Mexicana de Béisbol. Consulta récords, rachas, rendimiento por turno y más de todos los equipos de la LMB 2026.">
+  <meta name="description"
+    content="Estadísticas en vivo de la Liga Mexicana de Béisbol. Consulta récords, rachas, rendimiento por turno y más de todos los equipos de la LMB 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <!-- Apply theme before paint to avoid FOUC -->
   <script>
@@ -19,6 +23,7 @@
     })();
   </script>
 </head>
+
 <body>
 
   <!-- TOP NAV -->
@@ -29,13 +34,8 @@
           <span class="league-abbr">LMB</span>
           <span class="league-year">2026</span>
         </div>
-        <button
-          id="theme-toggle"
-          class="theme-toggle"
-          aria-label="Cambiar tema"
-          aria-pressed="false"
-          title="Cambiar tema"
-        >
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" aria-pressed="false"
+          title="Cambiar tema">
           <span class="icon-wrap icon-sun-wrap"><i data-lucide="sun" class="lc-icon"></i></span>
           <span class="icon-wrap icon-moon-wrap"><i data-lucide="moon" class="lc-icon"></i></span>
         </button>
@@ -45,7 +45,6 @@
           <span class="zone-label">Norte</span>
           <div class="zone-buttons" id="zone-norte"></div>
         </div>
-        <div class="zone-divider"></div>
         <div class="zone-group">
           <span class="zone-label">Sur</span>
           <div class="zone-buttons" id="zone-sur"></div>
@@ -84,4 +83,5 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script type="module" src="js/app.js"></script>
 </body>
+
 </html>
