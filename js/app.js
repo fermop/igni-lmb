@@ -17,7 +17,7 @@ async function init() {
 
   // records[0] = Zona Norte, records[1] = Zona Sur
   zoneNorteTeams = records[0]?.teamRecords ?? [];
-  zoneSurTeams   = records[1]?.teamRecords ?? [];
+  zoneSurTeams = records[1]?.teamRecords ?? [];
   allTeams = [...zoneNorteTeams, ...zoneSurTeams];
 
   renderNavbar();
@@ -35,12 +35,22 @@ function renderNavbar() {
         class="team-btn${team.team.id === selectedTeamId ? ' active' : ''}"
         data-id="${team.team.id}"
         aria-pressed="${team.team.id === selectedTeamId}"
-      >${team.team.name}</button>
+      >
+        <img
+          src="./img/${team.team.id}.webp"
+          alt=""
+          aria-hidden="true"
+          class="team-logo"
+          width="20"
+          height="20"
+          onerror="this.hidden=true"
+        />${team.team.name}
+      </button>
     `).join('');
   };
 
   renderButtons(zoneNorteTeams, 'zone-norte');
-  renderButtons(zoneSurTeams,   'zone-sur');
+  renderButtons(zoneSurTeams, 'zone-sur');
 
   document.getElementById('team-selector').addEventListener('click', (e) => {
     const btn = e.target.closest('.team-btn');

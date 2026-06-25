@@ -313,7 +313,9 @@ body {
   letter-spacing: .02em;
   white-space: nowrap;
   flex-shrink: 0;
-  flex-grow: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .team-btn:hover {
@@ -328,6 +330,34 @@ body {
   color: #fff;
   font-weight: 700;
   box-shadow: 0 0 14px rgba(224, 32, 64, .35);
+}
+
+/* Team logo inside nav button */
+.team-logo {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  border-radius: 2px;
+  display: block;
+  opacity: .7;
+  transition: opacity .18s ease;
+}
+
+.team-btn:hover .team-logo,
+.team-btn.active .team-logo {
+  opacity: 1;
+}
+
+.team-header-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-header-details img {
+  width: clamp(3rem, 11vw, 6.5rem);
+  height: clamp(3rem, 11vw, 6.5rem);
 }
 
 /* ══════════════════════════════════════════════════

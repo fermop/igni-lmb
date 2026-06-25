@@ -24,7 +24,7 @@ function renderHeroHeader(team) {
   // Find division name from divisionRecords
   const divRecords = team.records.divisionRecords;
   const divNorte = divRecords.find(d => d.division.name.includes('Norte'));
-  const divSur   = divRecords.find(d => d.division.name.includes('Sur'));
+  const divSur = divRecords.find(d => d.division.name.includes('Sur'));
   // We determine zone by whichever record is primary (higher games)
   const zoneText = divNorte && divSur
     ? (divNorte.wins + divNorte.losses >= divSur.wins + divSur.losses ? 'Zona Norte' : 'Zona Sur')
@@ -36,7 +36,18 @@ function renderHeroHeader(team) {
       <div class="hero-glow"></div>
       <div class="hero-top">
         <div class="hero-left">
+        <div class="team-header-details">
+          <img
+            src="./img/${team.team.id}.webp"
+            alt=""
+            aria-hidden="true"
+            class=""
+            width="32"
+            height="32"
+            onerror="this.hidden=true"
+          />
           <h1 class="hero-name">${team.team.name}</h1>
+          </div>
           <p class="hero-meta">
             ${zoneText ? `<span>${zoneText}</span><span class="hero-meta-sep">·</span>` : ''}
             <span>Rank #${team.leagueRank} Liga</span>
@@ -82,7 +93,7 @@ function renderLastTen(team) {
 function renderRunDiff(team) {
   const diff = team.runDifferential;
   const sign = diff > 0 ? '+' : '';
-  const cls  = diff >= 0 ? 'pos' : 'neg';
+  const cls = diff >= 0 ? 'pos' : 'neg';
 
   document.getElementById('card-run-diff').innerHTML = `
     <div class="card-label">Diferencial de carreras</div>
@@ -105,7 +116,7 @@ function renderHomeAway(team) {
   const home = getSplit(team, 'home');
   const away = getSplit(team, 'away');
   const divNorte = team.records.divisionRecords.find(d => d.division.name.includes('Norte'));
-  const divSur   = team.records.divisionRecords.find(d => d.division.name.includes('Sur'));
+  const divSur = team.records.divisionRecords.find(d => d.division.name.includes('Sur'));
 
   document.getElementById('card-home-away').innerHTML = `
     <div class="card-label">Casa vs Visitante</div>
@@ -149,9 +160,9 @@ function renderHomeAway(team) {
 
 /* ─── Day vs Night ────────────────────────────────── */
 function renderDayNight(team) {
-  const day   = getSplit(team, 'day');
+  const day = getSplit(team, 'day');
   const night = getSplit(team, 'night');
-  const dayGames   = day.wins + day.losses;
+  const dayGames = day.wins + day.losses;
   const nightGames = night.wins + night.losses;
 
   document.getElementById('card-day-night').innerHTML = `
@@ -175,10 +186,10 @@ function renderDayNight(team) {
 
 /* ─── Pressure Situations ─────────────────────────── */
 function renderPressure(team) {
-  const oneRun  = getSplit(team, 'oneRun');
-  const extra   = getSplit(team, 'extraInning');
+  const oneRun = getSplit(team, 'oneRun');
+  const extra = getSplit(team, 'extraInning');
   const oneRunGames = oneRun.wins + oneRun.losses;
-  const extraGames  = extra.wins + extra.losses;
+  const extraGames = extra.wins + extra.losses;
 
   document.getElementById('card-pressure').innerHTML = `
     <div class="card-label">Situaciones de presión</div>
@@ -202,8 +213,8 @@ function renderPressure(team) {
 /* ─── Season Context ──────────────────────────────── */
 function renderSeasonContext(team) {
   const magic = team.magicNumber ?? null;
-  const elim  = team.eliminationNumber ?? null;
-  const gb    = team.gamesBack;
+  const elim = team.eliminationNumber ?? null;
+  const gb = team.gamesBack;
 
   document.getElementById('card-season-context').innerHTML = `
     <div class="card-label">Contexto de temporada</div>
